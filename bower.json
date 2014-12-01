@@ -14,7 +14,8 @@
     "bootstrap": "~3.3.0",
     "bootswatch-dist": "3.3.0-sandstone",
     "fontawesome": "~4.2.0",
-    "angular-centered": "https://github.com/iameugenejo/angular-centered"
+    "angular-centered": "https://github.com/iameugenejo/angular-centered",
+    "ui.bootstrap": "~0.12.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

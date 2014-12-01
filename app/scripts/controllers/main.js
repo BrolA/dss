@@ -9,7 +9,7 @@
  */
 angular.module('dssApp').controller('MainCtrl', function ($scope) {
 
-  $scope.decisionGraph = {
+  $scope.defaultDecisionGraph = {
     topic: 'Która gra planszowa jest odpowiednia na ten moment.',
     question: 'Czy to gra jest odpowiednia?',
     decisions: [
@@ -55,9 +55,15 @@ angular.module('dssApp').controller('MainCtrl', function ($scope) {
     ]
   };
 
+
+  $scope.decisionGraph = {};
+
   $scope.currentNode = {};
 
   $scope.makeDecision = function (index) {
+    if(typeof index !== 'number'){
+      throw TypeError();
+    }
     if ($scope.currentNode.decisions) {
       $scope.currentNode = $scope.currentNode.decisions[index];
     }
@@ -67,5 +73,10 @@ angular.module('dssApp').controller('MainCtrl', function ($scope) {
     $scope.currentNode = angular.copy($scope.decisionGraph);
   };
 
+  $scope.useDefaultDecisionGraph = function(){
+    $scope.decisionGraph = angular.copy($scope.defaultDecisionGraph);
+  };
+
+  $scope.useDefaultDecisionGraph();
   $scope.reset();
 });
