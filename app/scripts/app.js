@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('swdApp', [
+  .module('dssApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

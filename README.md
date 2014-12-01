@@ -1,4 +1,6 @@
-dss-board-game
+Decision support system (DSS)
 ==============
-
-Decision support system (DSS) for board games
+Application written in javascript using:
+* Yeoman
+* AngularJS
+* Bootstrap 3

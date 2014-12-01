@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the swdApp
  */
-angular.module('swdApp').controller('MainCtrl', function ($scope) {
+angular.module('dssApp').controller('MainCtrl', function ($scope) {
 
   $scope.decisionGraph = {
     topic: 'Która gra planszowa jest odpowiednia na ten moment.',
