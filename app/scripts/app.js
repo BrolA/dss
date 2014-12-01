@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc overview
- * @name swdApp
+ * @name dssApp
  * @description
- * # swdApp
+ * # dssApp
  *
  * Main module of the application.
  */
