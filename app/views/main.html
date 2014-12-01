@@ -1,27 +1,47 @@
 <div class="row">
-  <div class="col-lg-12">
-    <div class="page-header">
-      <h1 ng-bind="decisionGraph.topic"></h1>
+    <div class="col-lg-12">
+        <h1>Decision graph for:
+            <small ng-bind="decisionGraph.topic"></small>
+        </h1>
+        <h2 ng-if="currentNode.question">Question:
+            <small ng-bind="currentNode.question"></small>
+        </h2>
+        <div ng-cloak ng-if="currentNode.decisions" class="form-group">
+            <div class="btn-group hidden-xs hidden-sm btn-group-lg btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-primary" ng-repeat="decision in currentNode.decisions"
+                       ng-click="makeDecision($index)">
+                    <input type="radio" name="options" autocomplete="off">
+                    {{decision.label}}
+                </label>
+            </div>
+            <div class="form-group hidden-md hidden-lg">
+                <button class="btn btn-primary btn-block" ng-repeat="decision in currentNode.decisions"
+                        ng-click="makeDecision($index)" ng-bind="decision.label"></button>
+            </div>
+        </div>
+        <p ng-if="!currentNode.decisions" class="lead" ng-bind="currentNode.answer"></p>
+        <hr/>
+        <div class="form-group">
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-warning" ng-click="reset()">
+                        <span class="hidden-xs hidden-sm"><i class="fa fa-fw fa-refresh"></i></span>
+                        <span>Reset answers</span>
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-success" ng-click="openCustomDecisionGraphInput()">
+                        <span class="hidden-xs hidden-sm"><i class="fa fa-fw fa-wrench"></i></span>
+                        <span>Edit graph</span>
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-danger" ng-click="useDefaultDecisionGraph()">
+                        <span class="hidden-xs hidden-sm"><i class="fa fa-fw fa-coffee"></i></span>
+                        <span>Default graph</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-    <p class="lead" ng-if="currentNode.question" ng-bind="currentNode.question"></p>
-    <div ng-cloak ng-if="currentNode.decisions" class="form-group">
-      <div class="btn-group hidden-xs hidden-sm btn-group-lg btn-group-justified" data-toggle="buttons">
-        <label class="btn btn-primary" ng-repeat="decision in currentNode.decisions" ng-click="makeDecision($index)">
-          <input type="radio" name="options" autocomplete="off">
-          {{decision.label}}
-        </label>
-      </div>
-      <div class="form-group hidden-md hidden-lg">
-        <button class="btn btn-primary btn-block" ng-repeat="decision in currentNode.decisions" ng-click="makeDecision($index)" ng-bind="decision.label"></button>
-      </div>
-    </div>
-    <p ng-if="!currentNode.decisions" class="lead" ng-bind="currentNode.answer"></p>
-    <hr/>
-    <div class="form-group">
-      <button class="btn btn-warning btn-block" ng-click="reset()">
-        <span class="hidden-xs hidden-sm"><i class="fa fa-fw fa-refresh"></i></span>
-        <span>Od początku</span>
-      </button>
-    </div>
-  </div>
 </div>
