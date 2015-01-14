@@ -7,54 +7,9 @@
  * # MainCtrl
  * Controller of the dssApp
  */
-angular.module('dssApp').controller('MainCtrl', ['$scope', '$modal', '$log', function ($scope, $modal, $log) {
+angular.module('dssApp').controller('MainCtrl', ['$scope', '$modal', '$log', 'decisionGraph', function ($scope, $modal, $log, decisionGraph) {
 
-    $scope.defaultDecisionGraph = {
-        topic: 'Która gra planszowa jest odpowiednia na ten moment.',
-        question: 'Czy to gra jest odpowiednia?',
-        decisions: [
-            {
-                label: 'Odpowiedz A',
-                question: ' Czy to prawda',
-                decisions: [
-                    {
-                        label: 'Odpowiedz A',
-                        answer: 'To jest ostateczna decyzja A'
-                    }, {
-                        label: 'Odpowiedz B',
-                        question: ' Czy to prawda',
-                        decisions: [
-                            {
-                                label: 'Odpowiedz A',
-                                question: ' Czy to prawda',
-                                decisions: []
-                            }, {
-                                label: 'Odpowiedz B',
-                                question: ' Czy to prawda',
-                                decisions: []
-                            }, {
-                                label: 'Odpowiedz C',
-                                question: ' Czy to prawda',
-                                decisions: []
-                            }
-                        ]
-                    }, {
-                        label: 'Odpowiedz C',
-                        question: ' Czy to prawda',
-                        decisions: []
-                    }
-                ]
-            }, {
-                label: 'Odpowiedz B',
-                question: ' Czy to prawda',
-                decisions: []
-            }, {
-                label: 'Odpowiedz C',
-                answer: 'To jest ostateczna decyzja C'
-            }
-        ]
-    };
-
+    $scope.defaultDecisionGraph = decisionGraph.getDefaultGraph();
     $scope.decisionGraph = {};
 
     $scope.currentNode = {};
